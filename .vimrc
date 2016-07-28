@@ -11,7 +11,7 @@ syntax enable
 set ts=4
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab
+set expandtab
 set number
 
 " Search and Indent
@@ -70,7 +70,7 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plugin 'LyDD42/vim-snippets'
 
 " @ Plugin --- [ Browse ]
 Plugin 'scrooloose/nerdtree'
@@ -204,6 +204,7 @@ let g:ycm_filetype_blacklist = {
 			\}
 
 
+" UltiSnips Config
 let g:UltiSnipsExpandTrigger       = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger  = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
