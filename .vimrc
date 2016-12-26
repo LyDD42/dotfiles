@@ -164,7 +164,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list      = 1
 let g:syntastic_auto_loc_list                 = 1
 let g:syntastic_check_on_open                 = 1
-let g:syntastic_check_on_wq                   = 0
+let g:syntastic_check_on_wq                   = 1
 " enbale header file check for c++
 let g:syntastic_cpp_check_header              = 1
 " disable ycm diagnosis while syntastic is on, to enable synstastic checker
@@ -177,7 +177,10 @@ let g:ycm_show_diagnostics_ui                 = 0
 "let g:syntastic_java_checkers       = ['java', 'jsp']
 "let g:syntastic_c_checkers          = ['gcc']
 let g:syntastic_cpp_checkers         = ['gcc']
-let g:syntastic_cpp_compiler_options = ' -std=c++14'
+let g:syntastic_cpp_compiler_options = ' '
+
+" test include setting
+let g:syntastic_cpp_include_dirs = [ 'utilities']
 
 
 
@@ -204,6 +207,7 @@ let g:ycm_filetype_blacklist = {
 			\}
 " YouCompleteMe Key Binding
 let g:ycm_key_list_select_completion   = ['<TAB>', '<Down>']
+" S-TAB suddenly stopped working, not sure why
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 
 
