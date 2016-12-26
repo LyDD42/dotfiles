@@ -179,10 +179,6 @@ let g:ycm_show_diagnostics_ui                 = 0
 let g:syntastic_cpp_checkers         = ['gcc']
 let g:syntastic_cpp_compiler_options = ' '
 
-" test include setting
-let g:syntastic_cpp_include_dirs = [ 'utilities']
-
-
 
 " YouCompleteMe Geek Config
 set completeopt=longest,menu
