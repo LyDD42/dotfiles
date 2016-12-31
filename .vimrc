@@ -47,6 +47,12 @@ nnoremap tj :tabnext<cr>
 nnoremap tk :tabprev<cr>
 nnoremap td :tabc<cr>
 
+" Shortcut
+" replace the word under cursor
+:nmap <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
+" replace the word under cursor as a word
+:nmap <leader>sw :%s/\<\(<c-r>=expand("<cword>")<cr>\)\>/
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -75,7 +81,8 @@ Plugin 'LyDD42/vim-snippets'
 " @ Plugin --- [ Browse ]
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
+Plugin 'jiangmiao/auto-pairs'
 
 " @ Plugin --- [ Code Formatting ]
 Plugin 'godlygeek/tabular'
@@ -202,9 +209,9 @@ let g:ycm_filetype_blacklist = {
 			\ 'text'      : 1,
 			\}
 " YouCompleteMe Key Binding
-let g:ycm_key_list_select_completion   = ['<TAB>', '<Down>']
-" S-TAB suddenly stopped working, not sure why
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
+let g:ycm_key_list_select_completion   = ['<Tab>', '<Down>']
+" S-TAB suddenly stopped working, due to delimitMate
+let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
 
 
 " UltiSnips Config
@@ -233,6 +240,12 @@ nmap <leader>nt :NERDTreeFind<CR>
 
 " Tagbar Shortcut
 nnoremap <leader>tt :TagbarToggle<CR>
+
+" " delimitMate Config
+" " removed, not compativle with ycm
+" " delimitMate is disabling S-Tab in ycm
+" let g:delimitMate_expand_cr    = 1
+" let g:delimitMate_expand_space = 1
 
 " Synstastic Shortcut
 noremap <F6>  :SyntasticToggleMode <CR>
