@@ -86,6 +86,7 @@ Plugin 'jiangmiao/auto-pairs'
 
 " @ Plugin --- [ Code Formatting ]
 Plugin 'godlygeek/tabular'
+
 call vundle#end()
 
 
@@ -226,7 +227,7 @@ set tags=./tags;
 let NERDTreeShowBookmarks               = 1
 let NERDTreeIgnore                      = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
 let NERDTreeChDirMode                   = 0
-let NERDTreeQuitOnOpen                  = 1
+let NERDTreeQuitOnOpen                  = 0
 let NERDTreeMouseMode                   = 2
 let NERDTreeShowHidden                  = 1
 let NERDTreeKeepTreeInNewTab            = 1
