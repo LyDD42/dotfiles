@@ -38,9 +38,9 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Buffer
-map bj :bn<cr>
-map bk :bp<cr>
-map bd :bd<cr>  
+nnoremap ]b :bn<cr>
+nnoremap [b :bp<cr>
+"nnoremap bd :bd<cr>  
 
 " Tab
 nnoremap tj :tabnext<cr>
@@ -83,6 +83,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 " Plugin 'Raimondi/delimitMate'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'mileszs/ack.vim'
 
 " @ Plugin --- [ Code Formatting ]
 Plugin 'godlygeek/tabular'
@@ -186,8 +187,11 @@ let g:ycm_show_diagnostics_ui                 = 0
 "let g:syntastic_c_checkers          = ['gcc']
 let g:syntastic_cpp_checkers         = ['gcc']
 let g:syntastic_cpp_compiler_options = ' '
-let g:syntastic_python_checkers         = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E271,E201,E202,E221'
+let g:syntastic_python_checkers      = ['flake8']
+let g:syntastic_python_flake8_args   = '--ignore=E501,E271,E201,E202,E221,W504'
+
+" Synstastic Shortcut
+noremap <F6>  :SyntasticToggleMode <CR>
 
 
 " YouCompleteMe Geek Config
@@ -216,6 +220,16 @@ let g:ycm_key_list_select_completion   = ['<Tab>', '<Down>']
 " S-TAB suddenly stopped working, due to delimitMate
 let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
 
+" YCM shortcut
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>		"Go to definition
+nnoremap <leader>ji :YcmCompleter GoToInclude<CR>						"Go to include file
+
+
+" C++ Syntax HighLight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+
 
 " UltiSnips Config
 let g:UltiSnipsExpandTrigger       = '<C-j>'
@@ -235,11 +249,11 @@ let NERDTreeShowHidden                  = 1
 let NERDTreeKeepTreeInNewTab            = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
-
 " NERDTree Shortcut
 map <F9> :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
+
 
 " Tagbar Shortcut
 nnoremap <leader>tt :TagbarToggle<CR>
@@ -250,17 +264,9 @@ nnoremap <leader>tt :TagbarToggle<CR>
 " let g:delimitMate_expand_cr    = 1
 " let g:delimitMate_expand_space = 1
 
-" Synstastic Shortcut
-noremap <F6>  :SyntasticToggleMode <CR>
 
-" YCM shortcut
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>		"Go to definition
-nnoremap <leader>ji :YcmCompleter GoToInclude<CR>						"Go to include file
-
-" C++ Syntax HighLight
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
+" NERDTree Config
+let g:ackprg = 'ag --vimgrep'
 
 
 " Tabularize Shortcut
