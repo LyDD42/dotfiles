@@ -5,6 +5,8 @@ export TERM='xterm-256color'
 # User specific environment and startup programs
 export PATH="$HOME/local/bin":$PATH
 
+export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/LyDD/.oh-my-zsh
@@ -98,25 +100,23 @@ source $ZSH/oh-my-zsh.sh
 # User specific aliases and functions
 alias vi="gvim -v"
 
-export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH"
+# options
+setopt no_share_history
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/LyDD/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/LyDD/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/LyDD/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/LyDD/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/LyDD/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/LyDD/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/LyDD/anaconda3/bin:$PATH"
+        export PATH="/home/LyDD/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# activate conda
-conda activate python3_7
+conda activate anaconda3_7
 
-# options
-setopt no_share_history
