@@ -5,11 +5,13 @@ export TERM='xterm-256color'
 # User specific environment and startup programs
 export PATH="$HOME/local/bin":$PATH
 
+export PYTHONPATH="/home/lydd/local/lib64/python3.7"
+
 export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH"
 
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/LyDD/.oh-my-zsh
+export ZSH=/home/lydd/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -105,18 +107,17 @@ setopt no_share_history
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/LyDD/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/lydd/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/LyDD/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/LyDD/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/lydd/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lydd/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/LyDD/miniconda3/bin:$PATH"
+        export PATH="/home/lydd/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
 conda activate anaconda3_7
-
