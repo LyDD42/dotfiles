@@ -222,8 +222,8 @@ let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
 
 " YCM shortcut
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>		"Go to definition
-nnoremap <leader>ji :YcmCompleter GoToInclude<CR>						"Go to include file
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>		" Go to definition
+nnoremap <leader>ji :YcmCompleter GoToInclude<CR>						" Go to include file
 
 
 " C++ Syntax HighLight

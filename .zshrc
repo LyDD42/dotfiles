@@ -121,3 +121,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 conda activate anaconda3_7
+
+export HOST=$(hostname)
