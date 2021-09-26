@@ -4,6 +4,8 @@ export TERM='xterm-256color'
 
 # User specific environment and startup programs
 export PATH="$HOME/local/bin":$PATH
+# add pycharm in PATH
+export PATH="$HOME/opt/pycharm/bin":$PATH
 
 export PYTHONPATH="/home/lydd/local/lib64/python3.7"
 
@@ -120,6 +122,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-conda activate anaconda3_7
+conda activate anaconda3_8
 
 export HOST=$(hostname)

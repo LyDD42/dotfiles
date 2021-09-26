@@ -6,6 +6,7 @@ syntax on                   " Syntax highlighting
 syntax enable
 "set mouse=a                 " Automatically enable mouse usage
 "set mousehide               " Hide the mouse cursor while typing
+set showcmd                 " show typed command
 
 " Format 
 set ts=4
