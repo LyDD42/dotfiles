@@ -1,0 +1,6 @@
+set clipboard^=unnamed
+
+" Buffer
+nnoremap ]b :bn<cr>
+nnoremap [b :bp<cr>
+"nnoremap bd :bd<cr>  

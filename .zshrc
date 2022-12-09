@@ -2,15 +2,6 @@ export TERM='xterm-256color'
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# User specific environment and startup programs
-export PATH="$HOME/local/bin":$PATH
-# add pycharm in PATH
-export PATH="$HOME/opt/pycharm/bin":$PATH
-
-export PYTHONPATH="/home/lydd/local/lib64/python3.7"
-
-export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH"
-
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/lydd/.oh-my-zsh
@@ -103,6 +94,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User specific aliases and functions
 alias vi="gvim -v"
+alias gcc="/usr/bin/gcc"
+alias g++="/usr/bin/g++"
+alias ld="/usr/bin/ld"
 
 # options
 setopt no_share_history
@@ -122,6 +116,15 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-conda activate anaconda3_8
+conda activate python3_9
+
+# User specific environment and startup programs
+export PATH="$HOME/local/bin":$PATH
+# add pycharm in PATH
+export PATH="$HOME/opt/pycharm/bin":$PATH
+
+export PYTHONPATH="/home/lydd/local/lib64/python3.7"
+
+export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH"
 
 export HOST=$(hostname)
