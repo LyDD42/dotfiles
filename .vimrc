@@ -20,6 +20,7 @@ set autoindent
 set smartindent
 set cindent
 set autoread
+set ignorecase
 set smartcase
 set hlsearch
 noremap <F4>  :nohls <CR>
