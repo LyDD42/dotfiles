@@ -83,7 +83,8 @@ Plugin 'psliwka/vim-smoothie'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'LyDD42/vim-snippets'
+" Plugin 'LyDD42/vim-snippets'
+Plugin 'honza/vim-snippets'
 
 " @ Plugin --- [ Browse ]
 Plugin 'scrooloose/nerdtree'
@@ -176,7 +177,6 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 " NERDTree Shortcut
 map <F9> :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
 
 
 " Tagbar Shortcut
