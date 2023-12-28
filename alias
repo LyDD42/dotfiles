@@ -1,0 +1,28 @@
+# User specific aliases and functions
+
+alias ls="ls --color=tty"
+alias rg="rg --smart-case --color=always --heading --line-number"
+alias vi="nvim"
+alias diff="vi -d"
+alias d="dirs -v"
+alias g="git"
+# alias gcc="/usr/bin/gcc"
+# alias g++="/usr/bin/g++"
+# alias ld="/usr/bin/ld"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lydd/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lydd/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lydd/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lydd/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+conda activate python3_9
