@@ -1,4 +1,3 @@
-
 export TERM='xterm-256color'
 
 # options
@@ -23,6 +22,35 @@ zmodload zsh/complist
 
 # key bindings
 bindkey -v
+
+# HOME END
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey -M vicmd "^[[H" beginning-of-line
+bindkey -M vicmd "^[[F" end-of-line
+
+bindkey "^E" end-of-line
+bindkey -M vicmd "^E" end-of-line
+
+bindkey "^[[3~" delete-char
+bindkey "^?" backward-delete-char
+
+# <C-arrow>
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
+
+bindkey -M vicmd "^[[A" history-beginning-search-backward
+bindkey -M vicmd "^[[B" history-beginning-search-forward
+bindkey -M vicmd "^P" history-beginning-search-backward
+bindkey -M vicmd "^N" history-beginning-search-forward
+
+# <Shift-TAB>
+bindkey "^[[Z" reverse-menu-complete
 
 # powerline 10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
