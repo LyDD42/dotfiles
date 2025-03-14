@@ -8,3 +8,7 @@ export PYTHONPATH="/home/lydd/local/lib64/python3.7"
 export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH"
 
 export HOST=$(hostname)
+
+#FZF
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_CTRL_T_COMMAND='FZF_DEFAULT_COMMAND'

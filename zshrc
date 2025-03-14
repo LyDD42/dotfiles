@@ -29,6 +29,9 @@ compinit
 
 zmodload zsh/complist
 
+#fzf
+source <(fzf --zsh)
+
 # key bindings
 bindkey -v
 
