@@ -50,17 +50,19 @@ bindkey -M vicmd "^E" end-of-line
 bindkey "^[[3~" delete-char
 bindkey "^?" backward-delete-char
 
-# <C-arrow>
+# <C-left/right arrow>
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# up/down arrow
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
-bindkey "^P" history-beginning-search-backward
-bindkey "^N" history-beginning-search-forward
-
 bindkey -M vicmd "^[[A" history-beginning-search-backward
 bindkey -M vicmd "^[[B" history-beginning-search-forward
+
+# <C-P/N>
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
 bindkey -M vicmd "^P" history-beginning-search-backward
 bindkey -M vicmd "^N" history-beginning-search-forward
 
