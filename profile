@@ -10,5 +10,6 @@ export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD
 export HOST=$(hostname)
 
 #FZF
+# export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_CTRL_T_COMMAND='FZF_DEFAULT_COMMAND'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

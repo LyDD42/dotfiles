@@ -29,15 +29,6 @@ compinit
 
 zmodload zsh/complist
 
-# zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# zsh-syntax-highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# fzf
-source <(fzf --zsh)
-
 # key bindings
 bindkey -v
 
@@ -78,6 +69,9 @@ bindkey -M vicmd "^N" history-beginning-search-forward
 # <Shift-TAB>
 bindkey "^[[Z" reverse-menu-complete
 
+# unbind ^I for fzf-completion
+bindkey -r "^I"
+
 # powerline 10k
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -90,5 +84,14 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf
+source <(fzf --zsh)
 
 source ~/.alias
