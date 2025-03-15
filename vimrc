@@ -55,7 +55,7 @@ nnoremap [t :tabprev<cr>
 nnoremap td :tabc<cr>
 
 " Change unnamed register
-set clipboard+=unnamedplus
+set clipboard+=unnamed,unnamedplus
 
 " ========================= Vundle Plugin Setup Start  ========================
 
