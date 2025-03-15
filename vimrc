@@ -90,7 +90,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 
 " @ Plugin --- [ Code Formatting ]
 Plugin 'godlygeek/tabular'
@@ -182,8 +182,8 @@ map <leader>e :NERDTreeFind<CR>
 " Tagbar Shortcut
 nnoremap <leader>tt :TagbarToggle<CR>
 
-" NERDTree Config
-let g:ackprg = 'ag --vimgrep'
+" " ACK Config
+" let g:ackprg = 'ag --vimgrep'
 
 
 " Tabularize Shortcut
