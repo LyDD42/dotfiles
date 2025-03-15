@@ -85,12 +85,13 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 " Plugin 'LyDD42/vim-snippets'
 Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
 
 " @ Plugin --- [ Browse ]
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'jiangmiao/auto-pairs'
-" Plugin 'mileszs/ack.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " @ Plugin --- [ Code Formatting ]
 Plugin 'godlygeek/tabular'
@@ -182,8 +183,22 @@ map <leader>e :NERDTreeFind<CR>
 " Tagbar Shortcut
 nnoremap <leader>tt :TagbarToggle<CR>
 
-" " ACK Config
-" let g:ackprg = 'ag --vimgrep'
+
+" FZF Shortcut
+nnoremap <silent> <leader><leader> :GFiles<CR>
+nnoremap <silent> <leader><bar> :Files<CR>
+nnoremap <silent> <leader>a :Buffers<CR>
+nnoremap <silent> <leader>A :Windows<CR>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 
 " Tabularize Shortcut
