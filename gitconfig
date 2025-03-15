@@ -3,3 +3,4 @@
 	email = theo.keanu@gmail.com
 [core]
 	editor = vi
+    pager = delta
