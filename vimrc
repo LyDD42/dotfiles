@@ -94,7 +94,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " @ Plugin --- [ Code Formatting ]
-Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
 
 call vundle#end()
 
@@ -201,22 +201,22 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 
-" Tabularize Shortcut
-nmap <Leader>a& :Tabularize /&<CR>
-vmap <Leader>a& :Tabularize /&<CR>
-nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-nmap <Leader>a=> :Tabularize /=><CR>
-vmap <Leader>a=> :Tabularize /=><CR>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-nmap <Leader>a:: :Tabularize /:\zs<CR>
-vmap <Leader>a:: :Tabularize /:\zs<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-vmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a,, :Tabularize /,\zs<CR>
-vmap <Leader>a,, :Tabularize /,\zs<CR>
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+" " Tabularize Shortcut
+" nmap <Leader>a& :Tabularize /&<CR>
+" vmap <Leader>a& :Tabularize /&<CR>
+" nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+" vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+" nmap <Leader>a=> :Tabularize /=><CR>
+" vmap <Leader>a=> :Tabularize /=><CR>
+" nmap <Leader>a: :Tabularize /:<CR>
+" vmap <Leader>a: :Tabularize /:<CR>
+" nmap <Leader>a:: :Tabularize /:\zs<CR>
+" vmap <Leader>a:: :Tabularize /:\zs<CR>
+" nmap <Leader>a, :Tabularize /,<CR>
+" vmap <Leader>a, :Tabularize /,<CR>
+" nmap <Leader>a,, :Tabularize /,\zs<CR>
+" vmap <Leader>a,, :Tabularize /,\zs<CR>
+" nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+" vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " ========================= Plugin Config End =========================
