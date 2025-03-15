@@ -72,13 +72,16 @@ bindkey "^[[Z" reverse-menu-complete
 # unbind ^I for fzf-completion
 bindkey -r "^I"
 # zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # zsh-syntax-highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fzf
 source <(fzf --zsh)
+
+# fzf.git
+source $HOME/.zsh/fzf-git.sh/fzf-git.sh
 
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh.json)"
 
