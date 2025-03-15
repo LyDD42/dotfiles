@@ -17,13 +17,16 @@ set expandtab
 set number
 set relativenumber
 
-" Search and Indent
+" Indent
 set autoindent
 set smartindent
 set cindent
 set autoread
+
+" Search
 set ignorecase
 set smartcase
+set wildignorecase
 set hlsearch
 noremap <F4>  :nohls <CR>
 
@@ -51,13 +54,8 @@ nnoremap ]t :tabnext<cr>
 nnoremap [t :tabprev<cr>
 nnoremap td :tabc<cr>
 
-" Shortcut
-" replace the word under cursor
-:nmap <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
-" replace the word under cursor as a word
-:nmap <leader>sw :%s/\<\(<c-r>=expand("<cword>")<cr>\)\>/
-
-
+" Change unnamed register
+set clipboard+=unnamedplus
 
 " ========================= Vundle Plugin Setup Start  ========================
 
@@ -124,7 +122,7 @@ set completeopt=longest,menu
 
 let g:ycm_global_ycm_extra_conf                         = '$HOME/Code/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf                            = 0
-let g:ycm_add_preview_to_completeopt					= 0
+let g:ycm_add_preview_to_completeopt			= 0
 
 let g:ycm_min_num_of_chars_for_completion               = 2   " 
 let g:ycm_collect_identifiers_from_tags_files           = 1   " enable identifiers collections from tags files
