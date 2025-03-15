@@ -173,6 +173,18 @@
           "type": "status"
         },
         {
+          "background": "#3465a4",
+          "foreground": "#e4e4e4",
+          "properties": {
+            "display_mode": "environment",
+            "fetch_virtual_env": true,
+            "home_enabled": true
+          },
+          "style": "powerline",
+          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ end }} ",
+          "type": "python"
+        },
+        {
           "background": "#d3d7cf",
           "foreground": "#000000",
           "invert_powerline": true,
