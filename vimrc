@@ -57,6 +57,8 @@ nnoremap td :tabc<cr>
 " Change unnamed register
 set clipboard+=unnamed,unnamedplus
 
+let g:python3_host_prog = '/usr/bin/python3'
+
 " ========================= Vundle Plugin Setup Start  ========================
 
 " set the runtime path to include Vundle and initialize
