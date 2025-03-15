@@ -85,7 +85,7 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 " Plugin 'LyDD42/vim-snippets'
 Plugin 'honza/vim-snippets'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'windwp/nvim-autopairs'
 
 " @ Plugin --- [ Browse ]
 Plugin 'scrooloose/nerdtree'
@@ -218,5 +218,10 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " vmap <Leader>a,, :Tabularize /,\zs<CR>
 " nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 " vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+
+" nvim-autopairs
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
 
 " ========================= Plugin Config End =========================
