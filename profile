@@ -9,6 +9,8 @@ export LD_LIBRARY_PATH="$HOME/local/lib/boost:$HOME/local/lib:/usr/local/lib:$LD
 
 export HOST=$(hostname)
 
+export EDITOR=nvim
+
 #FZF
 # export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND='rg --files'
