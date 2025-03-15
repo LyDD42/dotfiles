@@ -29,7 +29,13 @@ compinit
 
 zmodload zsh/complist
 
-#fzf
+# zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf
 source <(fzf --zsh)
 
 # key bindings
