@@ -57,7 +57,7 @@ nnoremap td :tabc<cr>
 " Change unnamed register
 set clipboard+=unnamed,unnamedplus
 
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = "$HOME/miniconda3/envs/nvim_py3_13/bin/python3.13"
 
 " ========================= Vundle Plugin Setup Start  ========================
 
