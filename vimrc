@@ -200,6 +200,13 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+function! RipgrepFzf(query, fullscreen)
+    let command = "rg --column --line-number --no-heading --color=always --smart-case "
+    call fzf#vim#grep(command . a:query, 1, fzf#vim#with_preview(), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
+
 
 " " Tabularize Shortcut
 " nmap <Leader>a& :Tabularize /&<CR>
