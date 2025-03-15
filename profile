@@ -1,5 +1,5 @@
 # User specific environment and startup programs
-export PATH="${HOME}/local/bin":$PATH
+export PATH="${HOME}/.local/bin":$PATH
 # add pycharm in PATH
 export PATH="$HOME/opt/pycharm/bin":$PATH
 
