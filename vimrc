@@ -4,7 +4,7 @@ filetype off                  " These two lines are required by vundle
 set background=dark         " Assume a dark background
 syntax on                   " Syntax highlighting
 syntax enable
-"set mouse=a                 " Automatically enable mouse usage
+set mouse= " disable mouse support
 "set mousehide               " Hide the mouse cursor while typing
 set showcmd                 " show typed command
 
