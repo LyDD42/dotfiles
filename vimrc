@@ -98,6 +98,9 @@ Plugin 'junegunn/fzf.vim'
 " @ Plugin --- [ Code Formatting ]
 " Plugin 'godlygeek/tabular'
 
+" @ Plugin --- [ LSP ]
+Plugin 'git@github.com:neovim/nvim-lspconfig.git'
+
 call vundle#end()
 
 
@@ -202,6 +205,7 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+
 function! RipgrepFzf(query, fullscreen)
     let command = "rg --column --line-number --no-heading --color=always --smart-case "
     call fzf#vim#grep(command . a:query, 1, fzf#vim#with_preview(), a:fullscreen)
@@ -234,3 +238,56 @@ require("nvim-autopairs").setup {}
 EOF
 
 " ========================= Plugin Config End =========================
+
+" ========================= LSP Config Start =========================
+lua << EOF
+vim.lsp.set_log_level("ERROR")
+EOF
+
+lua << EOF
+vim.diagnostic.config({
+    underline = false,
+    update_in_insert = false,
+})
+EOF
+
+" disabled as not used frequently
+" nnoremap <leader>li :LspInfo<CR>
+" nnoremap <leader>ls :LspStop<CR>
+" nnoremap <leader>ll :LspStart<CR>
+
+set omnifunc=v:lua.vim.lsp.omnifunc
+" TODO: figure out how this interacts with selection in completion menu. :help popupmenu-completion
+" inoremap <silent> <C-N> <C-X><C-O>
+
+nnoremap K :lua vim.lsp.buf.hover()<CR>
+
+nnoremap <leader>gg :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>gd :lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>gu :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>rr :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>f :lua vim.lsp.buf.format()<CR>
+vnoremap <leader>f :lua vim.lsp.buf.format()<CR>
+vnoremap <leader>cc :lua vim.lsp.buf.code_action()<CR>
+
+nnoremap <leader>el :lua vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.WARN } })<CR>
+nnoremap <leader>eL :lua vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.HINT } })<CR>
+
+lua << EOF
+require('lspconfig').pyright.setup{
+}
+EOF
+
+augroup aupython
+    au!
+    au FileType python setlocal colorcolumn=120
+    au FileType python setlocal textwidth=120
+
+    au FileType python nnoremap <buffer> <leader>f my:0,$!ruff format -q -<CR>'y
+    au FileType python inoremap <buffer> <leader>f :'<,'>!ruff format -q -<CR>
+
+    au FileType python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+augroup END
+
+" ========================= LSP Config End =========================
