@@ -151,6 +151,14 @@ let g:ycm_key_list_previous_completion = ['<S-Tab>', '<Up>']
 let g:ycm_show_diagnostics_ui                 = 1
 let g:ycm_always_populate_location_list       = 1
 
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'python',
+  \     'cmdline': [ "pyright-langserver", '--stdio' ],
+  \     'filetypes': [ 'python' ],
+  \   },
+  \ ]
+
 
 " YouCompleteMe shortcut
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
