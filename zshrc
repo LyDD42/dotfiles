@@ -71,6 +71,7 @@ bindkey "^[[Z" reverse-menu-complete
 
 # unbind ^I for fzf-completion
 bindkey -r "^I"
+
 # zsh-autosuggestions
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
