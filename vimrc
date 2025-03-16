@@ -55,7 +55,7 @@ nnoremap [t :tabprev<cr>
 nnoremap td :tabc<cr>
 
 " Change unnamed register
-set clipboard+=unnamed,unnamedplus
+set clipboard+=unnamedplus
 
 let g:python3_host_prog = "$HOME/miniconda3/envs/nvim_py3_13/bin/python3.13"
 
