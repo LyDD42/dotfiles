@@ -288,6 +288,7 @@ require('lspconfig').pyright.setup {
         -- Ignore all files for analysis to exclusively use Ruff for linting
         ignore = { '*' },
       },
+      pythonPath = "$HOME/.local/bin/python",
     },
   },
 }
