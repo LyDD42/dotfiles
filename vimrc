@@ -95,9 +95,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-" @ Plugin --- [ Code Formatting ]
-" Plugin 'godlygeek/tabular'
-
 " @ Plugin --- [ LSP ]
 Plugin 'git@github.com:neovim/nvim-lspconfig.git'
 
@@ -123,7 +120,7 @@ colorscheme gruvbox
 let g:airline_theme = 'simple'
 
 
-" YouCompleteMe Geek Config
+" YouCompleteMe Config
 set completeopt=longest,menu
 
 let g:ycm_global_ycm_extra_conf                         = '$HOME/.ycm_extra_conf.py'
@@ -155,7 +152,7 @@ let g:ycm_show_diagnostics_ui                 = 1
 let g:ycm_always_populate_location_list       = 1
 
 
-" YCM shortcut
+" YouCompleteMe shortcut
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>jg :YcmCompleter GoTo<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
@@ -215,24 +212,6 @@ endfunction
 
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-
-" " Tabularize Shortcut
-" nmap <Leader>a& :Tabularize /&<CR>
-" vmap <Leader>a& :Tabularize /&<CR>
-" nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-" vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-" nmap <Leader>a=> :Tabularize /=><CR>
-" vmap <Leader>a=> :Tabularize /=><CR>
-" nmap <Leader>a: :Tabularize /:<CR>
-" vmap <Leader>a: :Tabularize /:<CR>
-" nmap <Leader>a:: :Tabularize /:\zs<CR>
-" vmap <Leader>a:: :Tabularize /:\zs<CR>
-" nmap <Leader>a, :Tabularize /,<CR>
-" vmap <Leader>a, :Tabularize /,<CR>
-" nmap <Leader>a,, :Tabularize /,\zs<CR>
-" vmap <Leader>a,, :Tabularize /,\zs<CR>
-" nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-" vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 " nvim-autopairs
 lua << EOF
