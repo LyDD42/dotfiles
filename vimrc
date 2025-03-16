@@ -57,7 +57,7 @@ nnoremap td :tabc<cr>
 " Change unnamed register
 set clipboard+=unnamedplus
 
-let g:python3_host_prog = "$HOME/miniconda3/envs/nvim_py3_13/bin/python3.13"
+let g:python3_host_prog = "$HOME/.local/bin/python"
 
 " ========================= Vundle Plugin Setup Start  ========================
 
@@ -275,7 +275,29 @@ nnoremap <leader>el :lua vim.diagnostic.setloclist({ severity = { min=vim.diagno
 nnoremap <leader>eL :lua vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.HINT } })<CR>
 
 lua << EOF
-require('lspconfig').pyright.setup{
+require('lspconfig').pyright.setup {
+  settings = {
+    pyright = {
+        -- Using Ruff's import organizer
+        disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { '*' },
+      },
+    },
+  },
+}
+EOF
+
+lua << EOF
+require('lspconfig').ruff.setup {
+  init_options = {
+    settings = {
+      configurationPreference = "editorOnly"
+    },
+  },
 }
 EOF
 
@@ -284,8 +306,9 @@ augroup aupython
     au FileType python setlocal colorcolumn=120
     au FileType python setlocal textwidth=120
 
-    au FileType python nnoremap <buffer> <leader>f my:0,$!ruff format -q -<CR>'y
-    au FileType python inoremap <buffer> <leader>f :'<,'>!ruff format -q -<CR>
+    " this is handled by ruff lsp now
+    " au FileType python nnoremap <buffer> <leader>f my:0,$!ruff format -q -<CR>'y
+    " au FileType python inoremap <buffer> <leader>f :'<,'>!ruff format -q -<CR>
 
     au FileType python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 augroup END
