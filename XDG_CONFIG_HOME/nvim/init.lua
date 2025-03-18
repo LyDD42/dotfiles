@@ -34,14 +34,6 @@ vim.opt.wildignorecase = true
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>el',
-  function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.WARN } }) end,
-  { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('n', '<leader>eL',
-  function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.HINT } }) end,
-  { desc = 'Open diagnostic [Q]uickfix list' })
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 -- Bootstrap lazy.nvim
@@ -66,6 +58,19 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 -- vim.g.mapleader = " "
 -- vim.g.maplocalleader = "\\"
+
+vim.api.nvim_create_autocmd( "FileType", {
+  pattern = 'python',
+  callback = function(event)
+    vim.keymap.set('n', '<leader>f', "my:0,$!ruff format -q -<CR>'y", { desc = '[F]ormat' })
+    vim.keymap.set('v', '<leader>f', ":'<,'>!ruff format -q -<CR>", { desc = '[F]ormat' })
+
+    vim.opt_local.textwidth = 120
+    vim.opt_local.colorcolumn = '120'
+    vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifun '
+  end,
+  group = vim.api.nvim_create_augroup('augroup_python', { clear = true }),
+})
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -92,6 +97,14 @@ require("lazy").setup({
       config = function()
         local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
         require('lspconfig').pyright.setup { capabilities = capabilities }
+
+        -- Diagnostic keymaps
+        vim.keymap.set('n', '<leader>el',
+          function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.WARN } }) end,
+          { desc = 'Open diagnostic [Q]uickfix list' })
+        vim.keymap.set('n', '<leader>eL',
+          function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.HINT } }) end,
+          { desc = 'Open diagnostic [Q]uickfix list' })
 
         -- borrowed from kickstarter, but not an autocmd
         vim.keymap.set('n', '<leader>gg', vim.lsp.buf.definition, { desc = 'LSP: [G]oto Definition' })
