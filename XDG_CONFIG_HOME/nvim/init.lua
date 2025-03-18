@@ -35,7 +35,12 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>el',
+  function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.WARN } }) end,
+  { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>eL',
+  function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.HINT } }) end,
+  { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -85,8 +90,18 @@ require("lazy").setup({
     {
       'neovim/nvim-lspconfig',
       config = function()
-    local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-    require('lspconfig').pyright.setup { capabilities = capabilities }
+        local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+        require('lspconfig').pyright.setup { capabilities = capabilities }
+
+        -- borrowed from kickstarter, but not an autocmd
+        vim.keymap.set('n', '<leader>gg', vim.lsp.buf.definition, { desc = 'LSP: [G]oto Definition' })
+        vim.keymap.set('n', '<leader>gd', vim.lsp.buf.declaration, { desc = 'LSP: [G]oto [D]eclaration' })
+        vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, { desc = 'LSP: [G]oto [I]mplementation' })
+        vim.keymap.set('n', '<leader>gu', vim.lsp.buf.references, { desc = 'LSP: [G]oto [R]eferences' })
+        vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, { desc = 'LSP: [R]ename' })
+        vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
+        vim.keymap.set('v', '<leader>f', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
+        vim.keymap.set('n', '<leader>cc', vim.lsp.buf.code_action, { desc = 'LSP: [C]ode Action' })
       end
     },
     require 'plugins.completion',
