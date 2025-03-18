@@ -120,6 +120,9 @@ require("lazy").setup({
           },
         }
 
+        -- set omnifunc
+        vim.opt.omnifunc = 'v:lua.vim.lsp.omnifun '
+
         -- Diagnostic keymaps
         vim.keymap.set('n', '<leader>el',
           function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.WARN } }) end,
@@ -127,6 +130,8 @@ require("lazy").setup({
         vim.keymap.set('n', '<leader>eL',
           function() vim.diagnostic.setloclist({ severity = { min=vim.diagnostic.severity.HINT } }) end,
           { desc = 'Open diagnostic [Q]uickfix list' })
+
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP: Hover' })
 
         -- borrowed from kickstarter, but not an autocmd
         vim.keymap.set('n', '<leader>gg', vim.lsp.buf.definition, { desc = 'LSP: [G]oto Definition' })
