@@ -93,6 +93,33 @@ require("lazy").setup({
     { 'windwp/nvim-autopairs', opts = {} },
     { 'tpope/vim-fugitive' },
     {
+      "ibhagwan/fzf-lua",
+      config = function()
+        require("fzf-lua").setup(
+          {
+            files = { cmd = 'fd --type files' },
+            grep = { cmd = 'rg --column --line-number --no-heading --color=always --smart-case' },
+          }
+        )
+
+        vim.keymap.set('n', '<leader><leader>', require('fzf-lua').git_files, { silent = true, desc = 'FZF: Git Files' })
+        vim.keymap.set('n', '<leader><bar>', require('fzf-lua').files, { silent = true, desc = 'FZF: Files' })
+        vim.keymap.set('n', '<leader>a', require('fzf-lua').buffers, { silent = true, desc = 'FZF: Buffers' })
+        vim.keymap.set('n', '<leader>A', require('fzf-lua').tabs, { silent = true, desc = 'FZF: Tabs' })
+
+
+        vim.keymap.set('n', '<leader>gc', require("fzf-lua").git_commits, { silent = true, desc = "FZF: [G]it [C]ommits" })
+        vim.keymap.set('n', '<leader>rg', require("fzf-lua").grep, { silent = true, desc = "FZF: [R]ip[G]rep" })
+
+        vim.keymap.set('n', '<leader><tab>', require('fzf-lua').keymaps, { silent = true, desc = 'FZF: Keymaps' })
+        vim.keymap.set('v', '<leader><tab>', require('fzf-lua').keymaps, { silent = true, desc = 'FZF: Keymaps' })
+        vim.keymap.set('x', '<leader><tab>', require('fzf-lua').keymaps, { silent = true, desc = 'FZF: Keymaps' })
+
+        vim.keymap.set('i', '<C-x><C-f>', require("fzf-lua").complete_path, { silent = true, desc = "FZF: complete path" })
+        vim.keymap.set('i', '<C-x><C-l>', require("fzf-lua").complete_line, { silent = true, desc = "FZF: complete line" })
+      end,
+    },
+    {
       'neovim/nvim-lspconfig',
       config = function()
         local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
