@@ -9,7 +9,7 @@ set mouse= " disable mouse support
 set showcmd                 " show typed command
 
 " Format 
-set ts=4
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
