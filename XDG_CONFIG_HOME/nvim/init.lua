@@ -34,6 +34,16 @@ vim.opt.wildignorecase = true
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Buffer movement
+vim.keymap.set('n', ']b', ':bn<CR>')
+vim.keymap.set('n', '[b', ':bp<CR>')
+--vim.keymap.set('n', 'bd', ':bd<CR>')
+
+-- Tab movement
+vim.keymap.set('n', ']t', ':tabnext<CR>')
+vim.keymap.set('n', '[t', ':tabprev<CR>')
+vim.keymap.set('n', 'td', ':tabc<CR>')
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 -- Bootstrap lazy.nvim
