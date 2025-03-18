@@ -75,6 +75,14 @@ require("lazy").setup({
       end,
     },
     {
+      'itchyny/lightline.vim',
+      config = function()
+        vim.g.lightline = { colorscheme = 'wombat' }
+      end,
+    },
+    { 'windwp/nvim-autopairs', opts = {} },
+    { 'tpope/vim-fugitive' },
+    {
       'neovim/nvim-lspconfig',
       config = function()
     local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
