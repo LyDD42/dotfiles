@@ -62,8 +62,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.api.nvim_create_autocmd( "FileType", {
   pattern = 'python',
   callback = function(event)
-    vim.keymap.set('n', '<leader>f', "my:0,$!ruff format -q -<CR>'y", { desc = '[F]ormat' })
-    vim.keymap.set('v', '<leader>f', ":'<,'>!ruff format -q -<CR>", { desc = '[F]ormat' })
+    -- vim.keymap.set('n', '<leader>f', "my:0,$!ruff format -q -<CR>'y", { desc = '[F]ormat' })
+    -- vim.keymap.set('v', '<leader>f', ":'<,'>!ruff format -q -<CR>", { desc = '[F]ormat' })
 
     vim.opt_local.textwidth = 120
     vim.opt_local.colorcolumn = '120'
@@ -96,7 +96,29 @@ require("lazy").setup({
       'neovim/nvim-lspconfig',
       config = function()
         local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-        require('lspconfig').pyright.setup { capabilities = capabilities }
+        require('lspconfig').pyright.setup {
+          settings = {
+            pyright = {
+                -- Using Ruff's import organizer
+                disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+              },
+              pythonPath = "$HOME/.local/bin/python",
+            },
+          },
+          capabilities = capabilities
+        }
+        require('lspconfig').ruff.setup {
+          init_options = {
+            settings = {
+              configurationPreference = "editorOnly"
+            },
+          },
+        }
 
         -- Diagnostic keymaps
         vim.keymap.set('n', '<leader>el',
