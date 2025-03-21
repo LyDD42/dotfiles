@@ -12,6 +12,10 @@ vim.opt.mouse = 'a'
 vim.opt.showcmd = true
 -- vim.opt.showmode = false
 
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  See `:help 'clipboard'`
