@@ -99,9 +99,11 @@ require("lazy").setup({
       end,
     },
     {
-      'itchyny/lightline.vim',
+      'nvim-lualine/lualine.nvim',
       config = function()
-        vim.g.lightline = { colorscheme = 'wombat' }
+        require('lualine').setup {
+          options = { theme = 'gruvbox' },
+        }
       end,
     },
     { 'windwp/nvim-autopairs', opts = {} },
