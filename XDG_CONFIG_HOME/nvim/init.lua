@@ -100,10 +100,9 @@ vim.api.nvim_create_autocmd( "FileType", {
 require("lazy").setup({
   spec = {
     {
-      'ellisonleao/gruvbox.nvim',
+      'morhetz/gruvbox',
       priority = 1000, -- Make sure to load this before all the other start plugins.
       config = function()
-        require('gruvbox').setup { }
         vim.opt.background = "dark"
         vim.cmd.colorscheme 'gruvbox'
       end,
