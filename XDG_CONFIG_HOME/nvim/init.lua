@@ -86,6 +86,16 @@ vim.api.nvim_create_autocmd( "FileType", {
   group = vim.api.nvim_create_augroup('augroup_python', { clear = true }),
 })
 
+vim.api.nvim_create_autocmd( "FileType", {
+  pattern = 'lua',
+  callback = function(event)
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+  end,
+  group = vim.api.nvim_create_augroup('augroup_lua', { clear = true }),
+})
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
