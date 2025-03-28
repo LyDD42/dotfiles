@@ -96,6 +96,16 @@ vim.api.nvim_create_autocmd( "FileType", {
   group = vim.api.nvim_create_augroup('augroup_lua', { clear = true }),
 })
 
+vim.api.nvim_create_autocmd( "FileType", {
+  pattern = 'yaml',
+  callback = function(event)
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+  end,
+  group = vim.api.nvim_create_augroup('augroup_yaml', { clear = true }),
+})
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -148,6 +158,7 @@ require("lazy").setup({
 
         vim.keymap.set('n', '<leader>gc', require("fzf-lua").git_commits, { silent = true, desc = "FZF: [G]it [C]ommits" })
         vim.keymap.set('n', '<leader>rg', require("fzf-lua").grep, { silent = true, desc = "FZF: [R]ip[G]rep" })
+        vim.keymap.set('n', '<leader>F', require("fzf-lua").grep_cword, { silent = true, desc = "FZF: [f]ind word under cursor" })
 
         vim.keymap.set('n', '<leader><tab>', require('fzf-lua').keymaps, { silent = true, desc = 'FZF: Keymaps' })
         vim.keymap.set('v', '<leader><tab>', require('fzf-lua').keymaps, { silent = true, desc = 'FZF: Keymaps' })
