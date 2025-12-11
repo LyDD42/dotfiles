@@ -44,6 +44,9 @@ bindkey "^[[4~" end-of-line
 bindkey -M vicmd "^[[1~" beginning-of-line
 bindkey -M vicmd "^[[4~" end-of-line
 
+bindkey "^A" beginning-of-line
+bindkey -M vicmd "^A" beginning-of-line
+
 bindkey "^E" end-of-line
 bindkey -M vicmd "^E" end-of-line
 
