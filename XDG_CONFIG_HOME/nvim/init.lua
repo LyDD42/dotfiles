@@ -8,7 +8,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
-vim.opt.mouse = 'a'
 vim.opt.showcmd = true
 -- vim.opt.showmode = false
 
@@ -20,7 +19,11 @@ vim.opt.writebackup = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  if vim.fn.has("clipboard") == 1 then
+    vim.opt.clipboard = 'unnamedplus' -- sync with system clipboard
+  else
+    vim.opt.mouse = '' -- headless server
+  end
 end)
 
 vim.opt.ruler = true
