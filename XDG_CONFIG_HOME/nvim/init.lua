@@ -177,31 +177,6 @@ require("lazy").setup({
     {
       'neovim/nvim-lspconfig',
       config = function()
-        local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-        require('lspconfig').pyright.setup {
-          settings = {
-            pyright = {
-                -- Using Ruff's import organizer
-                disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                -- Ignore all files for analysis to exclusively use Ruff for linting
-                ignore = { '*' },
-              },
-              pythonPath = "$HOME/.local/bin/python",
-            },
-          },
-          capabilities = capabilities
-        }
-        require('lspconfig').ruff.setup {
-          init_options = {
-            settings = {
-              configurationPreference = "editorOnly"
-            },
-          },
-        }
-
         -- set omnifunc
         vim.opt.omnifunc = 'v:lua.vim.lsp.omnifun '
 
@@ -224,6 +199,39 @@ require("lazy").setup({
         vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
         vim.keymap.set('v', '<leader>f', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
         vim.keymap.set('n', '<leader>cc', vim.lsp.buf.code_action, { desc = 'LSP: [C]ode Action' })
+
+        -- lsp
+        local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+
+        vim.lsp.config('pyright', {
+          capabilities = capabilities,
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+              },
+              pythonPath = vim.fn.expand("$HOME/.local/bin/python"),
+            },
+          },
+        })
+
+        vim.lsp.config('ruff', {
+          capabilities = capabilities,
+          init_options = {
+            settings = {
+              configurationPreference = "editorOnly"
+            },
+          },
+        })
+
+        -- Enable the configs
+        vim.lsp.enable('pyright')
+        vim.lsp.enable('ruff')
       end
     },
     require 'plugins.completion',
