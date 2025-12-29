@@ -153,6 +153,7 @@ require("lazy").setup({
           {
             files = { cmd = 'fd --type file' },
             grep = { cmd = 'rg --column --line-number --no-heading --color=always --smart-case' },
+            winopts = { backdrop = false, }
           }
         )
 
