@@ -1,6 +1,6 @@
 # User specific aliases and functions
 
-alias ls="ls --color=tty"
+alias ll="eza -l --git --icons"
 alias rg="rg --smart-case --color=always --heading --line-number"
 alias vi="nvim"
 alias diff="vi -d"
