@@ -149,6 +149,7 @@ require("lazy").setup({
     require 'plugins.fzf',
     require 'plugins.lsp-config',
     require 'plugins.completion',
+    require 'plugins.copilot',
   },
   -- automatically check for plugin updates
   checker = { enabled = true },
