@@ -20,8 +20,8 @@ return {
     vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, { desc = 'LSP: [G]oto [I]mplementation' })
     vim.keymap.set('n', '<leader>gu', vim.lsp.buf.references, { desc = 'LSP: [G]oto [R]eferences' })
     vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, { desc = 'LSP: [R]ename' })
-    vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
-    vim.keymap.set('v', '<leader>f', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
+    vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
+    vim.keymap.set('v', '<leader>lf', vim.lsp.buf.format, { desc = 'LSP: [F]ormat' })
     vim.keymap.set('n', '<leader>cc', vim.lsp.buf.code_action, { desc = 'LSP: [C]ode Action' })
 
     -- lsp
