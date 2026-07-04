@@ -16,6 +16,9 @@ export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# npm
+export PATH="$HOME/.npm-global/bin:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/lydd/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
